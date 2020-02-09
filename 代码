@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<string.h>
+int sum;
+char name[100],ini[20],cal[100];
+int transform(char str[]){
+    if(strcmp("零",str)==0)return 0;
+    if(strcmp("一",str)==0)return 1;
+    if(strcmp("二",str)==0)return 2;
+    if(strcmp("三",str)==0)return 3;
+    if(strcmp("四",str)==0)return 4;
+    if(strcmp("五",str)==0)return 5;
+    if(strcmp("六",str)==0)return 6;
+    if(strcmp("七",str)==0)return 7;
+    if(strcmp("八",str)==0)return 8;
+    if(strcmp("九",str)==0)return 9;
+    if(strcmp("十",str)==0)return 10;
+}
+void add(char str[]){
+    if(strcmp(" 增加 一",str)==0)sum+=1;
+    if(strcmp(" 增加 二",str)==0)sum+=2;
+    if(strcmp(" 增加 三",str)==0)sum+=3;
+    if(strcmp(" 增加 四",str)==0)sum+=4;
+    if(strcmp(" 增加 五",str)==0)sum+=5;
+    if(strcmp(" 增加 六",str)==0)sum+=6;
+    if(strcmp(" 增加 七",str)==0)sum+=7;
+    if(strcmp(" 增加 八",str)==0)sum+=8;
+    if(strcmp(" 增加 九",str)==0)sum+=9;
+    if(strcmp(" 增加 十",str)==0)sum+=10;
+}
+void minus(char str[]){
+    if(strcmp(" 减少 一",str)==0)sum-=1;
+    if(strcmp(" 减少 二",str)==0)sum-=2;
+    if(strcmp(" 减少 三",str)==0)sum-=3;
+    if(strcmp(" 减少 四",str)==0)sum-=4;
+    if(strcmp(" 减少 五",str)==0)sum-=5;
+    if(strcmp(" 减少 六",str)==0)sum-=6;
+    if(strcmp(" 减少 七",str)==0)sum-=7;
+    if(strcmp(" 减少 八",str)==0)sum-=8;
+    if(strcmp(" 减少 九",str)==0)sum-=9;
+    if(strcmp(" 减少 十",str)==0)sum-=10;
+}
+void result(int x){
+    if(x==0) printf("零");
+    if(x==1) printf("一");
+    if(x==2) printf("二");
+    if(x==3) printf("三");
+    if(x==4) printf("四");
+    if(x==5) printf("五");
+    if(x==6) printf("六");
+    if(x==7) printf("七");
+    if(x==8) printf("八");
+    if(x==9) printf("九");
+    if(x==10) printf("十");
+   
+}
+int main(){
+    char a[100],b[100],c[100],d[100];
+    scanf("%s %s %s %s",a,b,c,d);
+    char e[100],f[100],g[100],h[100];
+    char a1[100],b1[100],c1[100],d1[100],e1[100],f1[100],g1[100],h1[100],w[10],y[10];
+    sum=transform(d);getchar();
+    for(;;){
+        scanf("%s",e);
+		//if(strcmp("如果",e)==0) break;
+        if(strcmp("看看",e)==0) break;
+        scanf("%s",f);
+        scanf("%s",g);
+        if(strcmp("增加",f)==0) sum+=transform(g);
+        if(strcmp("减少",f)==0) sum-=transform(g);
+    } 
+    scanf("%s",h);
+  //  scanf("%s %s %s %s %s %s %s %s %s %s",a1,b1,c1,d1,e1,f1,w,g1,h1,y);
+    if(sum<=10) result(sum);
+    if(sum>10){
+        int a;
+        a=sum/10;
+        if(a==1) printf("十");
+        else{
+            result(a);
+            printf("十");
+        }
+        int b; 
+        b=sum%10;   
+        if(b!=0) result(b);
+    }
+    return 0;
+}
